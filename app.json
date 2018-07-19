@@ -1,0 +1,8 @@
+{
+  "expo": {
+    "name": "manager",
+    "slug": "manager",
+    "sdkVersion": "27.0.0",
+    "privacy": "public"
+  }
+}
