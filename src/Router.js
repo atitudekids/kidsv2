@@ -8,11 +8,11 @@ import EmployeeEdit from './components/EmployeeEdit';
 const RouterComponent = () => {
   return (
     <Router >
-      <Stack hideNavBar key="root">
-        <Stack key="auth">
+      <Scene hideNavBar key="root">
+        <Scene key="auth">
           <Scene key="login" component={LoginForm} title="Login"  />
-        </Stack>
-        <Stack key="main">
+        </Scene>
+        <Scene key="main">
           <Scene
             onRight={() => Actions.employeeCreate()}
             rightTitle="Add"
@@ -23,8 +23,8 @@ const RouterComponent = () => {
           />
           <Scene key="employeeCreate" component={EmployeeCreate} title="Create Employee" />
           <Scene key="employeeEdit" component={EmployeeEdit} title="Edit Employee" />
-        </Stack>
-      </Stack>
+        </Scene>
+      </Scene>
     </Router>
   );
 };

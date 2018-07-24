@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { employeeUpdate, employeeCreate } from '../actions';
-import { Card, CardSection, Button } from './common';
+//import { Card, CardSection, Button } from './common';
+import { Container, Button, Text , Content} from 'native-base'
 import EmployeeForm from './EmployeeForm';
 
 class EmployeeCreate extends Component {
@@ -13,17 +14,27 @@ class EmployeeCreate extends Component {
 
   render() {
     return (
-      <Card>
-        <EmployeeForm {...this.props} />
-        <CardSection>
-          <Button onPress={this.onButtonPress.bind(this)}>
-            Create
-          </Button>
-        </CardSection>
-      </Card>
+      <Container>
+      <Content>
+       <EmployeeForm {...this.props} />
+        <Button block rounded info
+          onPress={this.onButtonPress.bind(this)}
+          style={styles.button}>
+          <Text>Create</Text>
+        </Button>
+        </Content>
+      </Container>
     );
   }
 }
+
+const styles = {
+  button:{
+    marginTop: 20,
+    marginLeft: 10,
+    marginRight: 10
+  }
+};
 
 const mapStateToProps = (state) => {
   const { name, phone, shift } = state.employeeForm;

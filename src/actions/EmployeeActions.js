@@ -22,7 +22,7 @@ export const employeeCreate = ({ name, phone, shift }) => {
       .push({ name, phone, shift })
       .then(() => {
         dispatch({ type: EMPLOYEE_CREATE });
-        Actions.employeeList({ type: 'reset' });
+        Actions.pop();
       });
   };
 };
@@ -46,7 +46,7 @@ export const employeeSave = ({ name, phone, shift, uid }) => {
       .set({ name, phone, shift })
       .then(() => {
         dispatch({ type: EMPLOYEE_SAVE_SUCCESS });
-        Actions.pop({ type: 'reset' });
+        Actions.pop();
         //Actions.employeeList({ type: 'reset' });
       });
   };

@@ -1,56 +1,59 @@
 import React, { Component } from 'react';
-import { View, Text, Picker } from 'react-native';
 import { connect } from 'react-redux';
 import { employeeUpdate } from '../actions';
-import { CardSection, Input} from './common';
+import { Body, Button, Container, Content, Form, Header, Input, Item, Label, Left,
+Picker, Right, Text, Title } from 'native-base';
+
 
 class EmployeeForm extends Component {
+
   render() {
-    return(
-      <View>
-        <CardSection>
+    return (
+      <Form style={styles.form}>
+        <Item floatingLabel style={styles.item}>
+          <Label>Name</Label>
           <Input
-            label="Name"
-            placeholder="May"
-            value={this.props.name}
             onChangeText={value => this.props.employeeUpdate({ prop: 'name', value })}
+            value={this.props.name}
           />
-        </CardSection>
+        </Item>
 
-        <CardSection>
+        <Item floatingLabel style={styles.item}>
+          <Label>Phone</Label>
           <Input
-            label="Phone"
-            placeholder="21 99999-9999"
-            value={this.props.phone}
             onChangeText={value => this.props.employeeUpdate({ prop: 'phone', value })}
+            value={this.props.phone}
           />
-        </CardSection>
+        </Item>
 
-        <CardSection style={{ flexDirection: 'column' }}>
-          <Text style={styles.pickerTextStyle}>Shift</Text>
-          <Picker
-            style={{ flex: 1 }}
-            selectedValue={this.props.shift}
-            onValueChange={value => this.props.employeeUpdate({ prop: 'shift', value })}
-          >
-            <Picker.Item label="Segunda" value="Segunda" />
-            <Picker.Item label="Terça" value="Terça" />
-            <Picker.Item label="Quarta" value="Quarta" />
-            <Picker.Item label="Quinta" value="Quinta" />
-            <Picker.Item label="Sexta" value="Sexta" />
-            <Picker.Item label="Sábado" value="Sábado" />
-            <Picker.Item label="Domingo" value="Domingo" />
-          </Picker>
-        </CardSection>
-      </View>
+        <Item picker>
+                <Picker
+                  mode="dropdown"
+                  style={{ width: undefined }}
+                  placeholder="Select your SIM"
+                  selectedValue={this.props.shift}
+                  onValueChange={value => this.props.employeeUpdate({ prop: 'shift', value })}
+                >
+                  <Picker.Item label="Segunda" value="Segunda" />
+                  <Picker.Item label="Terca" value="Terca" />
+                </Picker>
+              </Item>
+
+      </Form>
     );
   }
 }
 
 const styles = {
-  pickerTextStyle: {
-    fontSize: 18,
-    paddingLeft: 20
+  form:{
+    marginLeft: 10,
+    marginRight: 10
+  },
+  item:{
+    marginTop: 20
+  },
+  button:{
+    marginTop: 20
   }
 };
 

@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import Communications from 'react-native-communications';
 import EmployeeForm from './EmployeeForm';
 import { employeeUpdate, employeeSave, employeeDelete } from '../actions';
-import { Card, CardSection, Button, Confirm } from './common';
+import { Container, Form, Item, Button, Text} from 'native-base';
+//import { Card, CardSection, Button, Confirm } from './common';
 
 class EmployeeEdit extends Component {
   state = { showModal: false };
@@ -37,35 +38,37 @@ class EmployeeEdit extends Component {
 
   render() {
     return (
-      <Card>
-        <EmployeeForm />
-
-        <CardSection>
-          <Button onPress={this.onButtonPress.bind(this)}>
-            Save changes
+      <Container>
+        <EmployeeForm {...this.props} />
+        <Item>
+          <Button block rounded info
+            onPress={this.onButtonPress.bind(this)}>
+            <Text>Save changes</Text>
           </Button>
-        </CardSection>
+        </Item>
 
-        <CardSection>
-          <Button onPress={this.onTextPress.bind(this)}>
-            Text Schedule
+        <Item>
+          <Button block rounded info
+            onPress={this.onTextPress.bind(this)}>
+            <Text>Schedule</Text>
           </Button>
-        </CardSection>
+        </Item>
 
-        <CardSection>
-          <Button onPress={() => this.setState({ showModal: !this.state.showModal })}>
-            Fire Employee
+        <Item>
+          <Button block rounded info
+            onPress={() => this.setState({ showModal: !this.state.showModal })}>
+            <Text>Fire Employee</Text>
           </Button>
-        </CardSection>
-
-        <Confirm
-          visible={this.state.showModal}
-          onAccept={this.onAccept.bind(this)}
-          onDecline={this.onDecline.bind(this)}
-        >
-          Are you sure you want to delete this?
-        </Confirm>
-      </Card>
+        </Item>
+      </Container>
+        // <Confirm
+        //   visible={this.state.showModal}
+        //   onAccept={this.onAccept.bind(this)}
+        //   onDecline={this.onDecline.bind(this)}
+        // >
+        //   Are you sure you want to delete this?
+        // </Confirm>
+      //</Container>
     )
   }
 }
