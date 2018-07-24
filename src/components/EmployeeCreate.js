@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { employeeUpdate, employeeCreate } from '../actions';
+import { employeeUpdate, employeeCreate, employeeInitialize } from '../actions';
 //import { Card, CardSection, Button } from './common';
 import { Container, Button, Text , Content} from 'native-base'
 import EmployeeForm from './EmployeeForm';
 
 class EmployeeCreate extends Component {
+
+  componentWillMount() {
+      this.props.employeeInitialize();
+  }
   onButtonPress() {
     const { name, phone, shift } = this.props;
 
@@ -43,5 +47,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  employeeUpdate, employeeCreate
+  employeeUpdate, employeeCreate, employeeInitialize
 })(EmployeeCreate);

@@ -4,8 +4,15 @@ import {
   EMPLOYEE_UPDATE,
   EMPLOYEE_CREATE,
   EMPLOYEES_FETCH_SUCCESS,
-  EMPLOYEE_SAVE_SUCCESS
+  EMPLOYEE_SAVE_SUCCESS,
+  EMPLOYEE_INITIALIZE
 } from './types';
+
+export const employeeInitialize = () => {
+  return {
+    type: EMPLOYEE_INITIALIZE
+  };
+};
 
 export const employeeUpdate = ({ prop, value }) => {
   return {
