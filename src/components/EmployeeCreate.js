@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { employeeUpdate, employeeCreate, employeeInitialize } from '../actions';
-//import { Card, CardSection, Button } from './common';
 import { Container, Button, Text , Content} from 'native-base'
 import EmployeeForm from './EmployeeForm';
 
@@ -19,13 +18,13 @@ class EmployeeCreate extends Component {
   render() {
     return (
       <Container>
-      <Content>
-       <EmployeeForm {...this.props} />
-        <Button block rounded info
-          onPress={this.onButtonPress.bind(this)}
-          style={styles.button}>
-          <Text>Create</Text>
-        </Button>
+        <Content>
+          <EmployeeForm {...this.props} />
+          <Button block rounded info
+            onPress={this.onButtonPress.bind(this)}
+            style={styles.button}>
+            <Text>Create</Text>
+          </Button>
         </Content>
       </Container>
     );
